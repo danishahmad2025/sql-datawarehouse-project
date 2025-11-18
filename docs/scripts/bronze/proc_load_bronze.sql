@@ -6,7 +6,10 @@ stored procedure:load bronze layer(source -> bronze)
    - Tracks load time and handles errors.
 stores procedure doesnot accept parameters or return any value.
 
- How to Run:
+*while inserting (bronze.erp_cust_az12) i have use (ROWTERMINATOR = '0x0d0a',) instead of (ROWTERMINATOR = '/n',)
+because the table contain some hidden newline characters 
+ 
+How to Run:
    1. Run this script once to create/update the procedure.
    2. Then execute it with:  EXEC bronze.load_bronze;
   eg:   GO
@@ -114,7 +117,7 @@ BEGIN
     WITH (
         FIRSTROW = 2,
         FIELDTERMINATOR = ',',
-        ROWTERMINATOR = '\n',
+        ROWTERMINATOR = '0x0d0a',
         TABLOCK
     );
     SET @end_time = GETDATE();
