@@ -1,6 +1,22 @@
+/*********************************************************************************************
+stored procedure:load silver layer(source -> silver)
+ Purpose:
+   -this stored procedure performs ETL(Extract,Transform,Load) process to populated 'silver' schema
+    tables from 'bronze' schema
+Action Performed:
+                 -Truncate silver tables.
+                 -Inserts transformed and cleansed data from bronze tables.
 
-EXEC silver.load_silver
- GO
+*stores procedure doesnot accept parameters or return any value
+ 
+ How to Run:
+   1. Run this script once to create/update the procedure.
+   2. Then execute it with:  EXEC bronze.load_bronze;
+  eg:   GO
+        EXEC bronze.load_silver;
+
+*********************************************************************************************/
+
 CREATE OR ALTER PROCEDURE silver.load_silver AS
 BEGIN
     DECLARE @start_time DATETIME , @end_time DATETIME , @batch_start_time DATETIME , @batch_end_time DATETIME ;
@@ -45,7 +61,7 @@ SELECT
     cst_create_date
  FROM(
     SELECT*,
-    ROW_NUMBER() OVER(PARTITION BY cst_id ORDER By cst_create_date) AS flag_last
+    ROW_NUMBER() OVER(PARTITION BY cst_id ORDER By cst_create_date DESC) AS flag_last
     FROM bronze.crm_cust_info
     WHERE cst_id IS NOT NULL
  ) t 
@@ -175,7 +191,7 @@ SELECT
         (CID,CNTRY)
         SELECT 
          REPLACE(CID,'-','') CID,
-    CASE WHEN TRIM(CNTRY) = 'DE'THEN 'Germany'
+    CASE WHEN TRIM(CNTRY) = 'DE' THEN 'Germany'
     WHEN TRIM(CNTRY) IN ('US','USA') THEN 'United States'
     WHEN TRIM(CNTRY) = '' OR CNTRY IS NULL THEN 'n/a'
    ELSE TRIM(CNTRY)
@@ -208,10 +224,10 @@ SELECT
     END TRY
     BEGIN CATCH
     print'================================================';
-    print'error occur during loading bronze layer';
+    print'error occur during loading silver layer';
     print'error message'+ error_message();
     print'error message'+CAST(error_number()AS NVARCHAR);
     PRINT'error message'+CAST(error_state()AS NVARCHAR);
     END CATCH
     END;
-    GO
+   
