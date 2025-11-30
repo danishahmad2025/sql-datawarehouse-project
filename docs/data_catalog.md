@@ -54,7 +54,3 @@
 <tr><td>quantity</td><td>INT</td><td>Quantity ordered.</td></tr>
 <tr><td>price</td><td>INT</td><td>Price per unit.</td></tr>
 </table>
-
----
-
-<p style="text-align:center; font-size:15px; font-weight:bold;">✔️ Styled HTML version only — perfect for GitHub README.md</p>
