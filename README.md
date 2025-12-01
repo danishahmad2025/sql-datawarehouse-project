@@ -24,3 +24,9 @@ Creating SQL-based reports, visual dashboards, and actionable insights for busin
 Hi there! I'm <b>Danish Ekbal Ahmad</b> — an IT student and a passionate learner who loves exploring data, engineering modern solutions, and building projects that solve real-world problems.
 
 I’m continuously learning, experimenting, and improving to make working with data more enjoyable, insightful, and impactful!
+
+📝 <b>Feedback & Suggestions</b>
+
+If you find any mistakes in this project — whether in the code, architecture, explanations, or even the arrangement of the files — please feel free to share your feedback. I’m always learning and open to improvements.
+
+Your suggestions are highly appreciated and will help me grow as a developer. Thank you! 🙌
