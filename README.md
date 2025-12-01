@@ -21,6 +21,6 @@ Creating SQL-based reports, visual dashboards, and actionable insights for busin
 
 ⭐ About Me
 
-Hi there! I'm Danish Ekbal Ahmad — an IT student and a passionate learner who loves exploring data, engineering modern solutions, and building projects that solve real-world problems.
+Hi there! I'm <b>Danish Ekbal Ahmad</b> — an IT student and a passionate learner who loves exploring data, engineering modern solutions, and building projects that solve real-world problems.
 
 I’m continuously learning, experimenting, and improving to make working with data more enjoyable, insightful, and impactful!
