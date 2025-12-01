@@ -7,7 +7,7 @@ This project showcases an end-to-end data warehousing and analytics solution —
 
 This project includes:
 
-Data Architecture
+<b>Data Architecture</b>
 Designing a modern data warehouse using Medallion Architecture — Bronze, Silver, and Gold layers.
 
 ETL Pipelines
